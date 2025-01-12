@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: molofi01/flask-app:latest
+        image: molofi01/flask-app:v2
         ports:
         - containerPort: 5001
