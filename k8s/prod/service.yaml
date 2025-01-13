@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-prod
+  namespace: prod
+  labels:
+    app: flask-app
+    env: prod
+spec:
+  selector:
+    app: flask-app
+    env: prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5001

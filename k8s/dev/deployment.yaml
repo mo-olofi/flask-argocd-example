@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-dev
+  namespace: dev
+  labels:
+    app: flask-app
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: flask-app
+        env: dev
+    spec:
+      containers:
+      - name: flask-app
+        image: molofi01/flask-app:dev
+        ports:
+        - containerPort: 5001
