@@ -1,0 +1,20 @@
+# filepath: /Users/mohammedal-olofi/Documents/flask-argocd-example/k8s/dev/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-app-dev-ingress
+  namespace: dev
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: flask-app-dev.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-app-dev
+            port:
+              number: 80
